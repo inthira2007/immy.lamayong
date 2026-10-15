@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio 🎀 เลอิม (อินธิรา)</title>
+    <title>Portfolio | Inthira Chunkhuntod</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'mali': ['Mali', 'cursive'],
+                        'sans': ['Kanit', 'sans-serif'],
+                        'cute': ['Mali', 'cursive'],
                     },
                     colors: {
-                        'kitty-pink': '#FFB6C1',
-                        'kitty-red': '#FF0000',
-                        'kitty-light': '#FFF0F5',
-                        'kitty-border': '#FF69B4'
+                        pastel: {
+                            pink: '#FFA6C9',
+                            lightpink: '#FFE6F0',
+                            blue: '#AEC6CF',
+                            lightblue: '#E6F2F7',
+                            purple: '#CDB4DB',
+                            yellow: '#FDFD96',
+                            bg: '#FFFDFE'
+                        },
+                        textmain: '#5a4f4f',
+                        textsoft: '#857878'
                     }
                 }
             }
@@ -28,166 +37,317 @@
     </script>
     <style>
         body {
-            font-family: 'Mali', cursive;
-            background-color: #FFF0F5;
-            background-image: radial-gradient(#FFB6C1 15%, transparent 15%);
-            background-size: 30px 30px;
+            background-color: #FFFDFE;
+            color: #5a4f4f;
+            background-image: 
+                radial-gradient(#FFA6C9 1px, transparent 1px),
+                radial-gradient(#AEC6CF 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            background-attachment: fixed;
+            opacity: 0.95;
         }
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
         }
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
-        .kitty-card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 3px solid #FFB6C1;
+        .cute-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #FFF;
+            box-shadow: 0 10px 25px -5px rgba(255, 166, 201, 0.3);
             border-radius: 2rem;
-            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .kitty-card:hover {
+        .cute-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
-            border-color: #FF69B4;
+            box-shadow: 0 15px 30px -5px rgba(255, 166, 201, 0.5);
         }
-        .bow-shape {
+        .section-title {
+            position: relative;
             display: inline-block;
-            font-size: 1.5rem;
-            color: #FF0000;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 6px;
+            background-color: #FFA6C9;
+            border-radius: 10px;
+            z-index: -1;
+            opacity: 0.5;
         }
     </style>
 </head>
-<body class="text-gray-700">
+<body class="antialiased selection:bg-pastel-pink selection:text-white relative font-sans overflow-x-hidden">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b-4 border-kitty-pink p-4 shadow-sm">
-        <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
-            <div class="text-2xl font-bold text-kitty-border flex items-center gap-2">
-                <span class="text-3xl">🐱</span> <span>Leim.Portfolio</span> <span class="bow-shape">🎀</span>
-            </div>
-            <div class="hidden md:flex gap-6 font-semibold text-pink-600">
-                <a href="#about" class="hover:text-kitty-red transition">ประวัติส่วนตัว</a>
-                <a href="#personality" class="hover:text-kitty-red transition">บุคลิกภาพ</a>
-                <a href="#skills" class="hover:text-kitty-red transition">ทักษะความสามารถ</a>
-                <a href="#contact" class="hover:text-kitty-red transition">ติดต่อ</a>
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b-2 border-pastel-lightpink">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-cute font-bold text-pastel-pink drop-shadow-sm flex items-center gap-2">
+                <i class="fa-solid fa-star text-pastel-yellow"></i>
+                INTHIRA
+            </a>
+            <div class="hidden md:flex gap-6 font-cute text-lg text-textsoft font-medium">
+                <a href="#profile" class="hover:text-pastel-pink transition-colors px-3 py-1 rounded-full hover:bg-pastel-lightpink">Profile</a>
+                <a href="#education" class="hover:text-pastel-blue transition-colors px-3 py-1 rounded-full hover:bg-pastel-lightblue">Education</a>
+                <a href="#activities" class="hover:text-pastel-purple transition-colors px-3 py-1 rounded-full hover:bg-gray-100">Activities</a>
+                <a href="#contact" class="hover:text-pastel-pink transition-colors px-3 py-1 rounded-full hover:bg-pastel-lightpink">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="max-w-5xl mx-auto mt-12 mb-16 px-4 text-center">
-        <div class="relative inline-block mb-6 float-animation">
-            <!-- Profile Placeholder Image -->
-            <img src="https://placehold.co/200x200/FFB6C1/FFF?text=Leim&font=lora" alt="Profile" class="w-48 h-48 rounded-full border-8 border-white shadow-xl object-cover">
-            <div class="absolute -top-2 -right-4 text-5xl">🎀</div>
+    <header id="profile" class="pt-32 pb-20 px-4 min-h-[85vh] flex flex-col justify-center items-center text-center relative">
+        
+        <!-- Decorative background elements -->
+        <div class="absolute top-40 left-10 md:left-40 w-24 h-24 bg-pastel-yellow rounded-full mix-blend-multiply filter blur-xl opacity-70 float-anim"></div>
+        <div class="absolute bottom-40 right-10 md:right-40 w-32 h-32 bg-pastel-blue rounded-full mix-blend-multiply filter blur-xl opacity-60 float-anim" style="animation-delay: 2s;"></div>
+        
+        <div class="mb-8 relative float-anim z-10">
+            <div class="w-48 h-48 md:w-56 md:h-56 blob-shape bg-pastel-lightpink p-2 mx-auto relative shadow-xl border-4 border-white">
+                <!-- Profile Image -->
+                <img src="https://raw.githubusercontent.com/inthira2007/immy.lamayong/main/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%B4.png" alt="Inthira Profile" class="w-full h-full object-cover blob-shape">
+                <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg text-pastel-pink text-2xl">
+                    ✨
+                </div>
+            </div>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">สวัสดีค่ะ! ฉันชื่อ <span class="text-kitty-border">เลอิม</span></h1>
-        <h2 class="text-2xl text-pink-500 font-medium mb-6">อินธิรา ชันขุนทด</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto bg-white/80 p-4 rounded-xl border border-pink-100">
-            "ชอบดูแลช่วยเหลือผู้อื่น ชอบศึกษาในการหาคำตอบกับสิ่งต่างๆ ร่าเริง อัธยาศัยดี" 🍎✨
-        </p>
+        
+        <div class="z-10 cute-card px-8 py-6 max-w-2xl mx-auto backdrop-blur-sm">
+            <h2 class="font-cute text-xl text-pastel-blue font-bold mb-2">Hello! I'm</h2>
+            <h1 class="text-4xl md:text-5xl font-cute font-bold text-textmain mb-2">
+                อินธิรา ชันขุนทด <span class="text-pastel-pink">(อิม)</span>
+            </h1>
+            <p class="text-lg md:text-xl text-textsoft mb-4">Inthira Chunkhuntod</p>
+            <p class="text-md text-textmain font-light leading-relaxed bg-pastel-lightpink/50 p-4 rounded-2xl">
+                "เป็นคนชอบดูแลช่วยเหลือผู้อื่น ร่าเริง อัธยาศัยดี มุ่งมั่นในการพัฒนาทักษะที่มีอยู่และพร้อมรับทักษะใหม่ๆ ชอบและสนใจในการทดลอง มีความเป็นผู้นำ และสามารถทำงานร่วมกับผู้อื่นได้เป็นอย่างดี"
+            </p>
+        </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 pb-20 space-y-12">
+    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-24">
         
-        <section id="about" class="kitty-card p-8 md:p-10 relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 text-pink-300">🐱</div>
-            <h3 class="text-2xl font-bold text-pink-600 mb-6 flex items-center gap-2 border-b-2 border-pink-200 pb-2">
-                <i class="fas fa-id-card"></i> ข้อมูลส่วนตัว 🌸
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                <div>
-                    <p class="mb-3"><strong class="text-pink-500">ชื่อ - สกุล :</strong> อินธิรา ชันขุนทด</p>
-                    <p class="mb-3"><strong class="text-pink-500">ชื่อเล่น :</strong> เลอิม</p>
-                    <p class="mb-3"><strong class="text-pink-500">วันเกิด :</strong> 21 กรกฎาคม 2550</p>
-                    <p class="mb-3"><strong class="text-pink-500">อายุ :</strong> 17 ปี</p>
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
+            <!-- Personal Info Card -->
+            <div class="md:col-span-5 cute-card p-8">
+                <!-- Added Image for About Section -->
+                <div class="w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6 border-4 border-white shadow-md relative group">
+                    <!-- หากมีลิงก์รูป .png/.jpg โดยตรง ให้นำมาใส่ตรง src ด้านล่างนี้ครับ -->
+                    <img src="https://placehold.co/600x400/FFE6F0/FFA6C9?text=About+Image+Here" alt="About Me Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-pastel-pink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div>
-                    <p class="mb-3"><strong class="text-pink-500">สัญชาติ :</strong> ไทย</p>
-                    <p class="mb-3"><strong class="text-pink-500">เชื้อชาติ :</strong> ไทย</p>
-                    <p class="mb-3 bg-pink-50 p-3 rounded-lg border border-pink-100 mt-2">
-                        <strong class="text-pink-500 block mb-1">🎓 แผนการเรียน :</strong> 
-                        วิทยาศาสตร์ - คณิตศาสตร์ - ภาษาอังกฤษ
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <section id="personality" class="kitty-card p-8 md:p-10 relative">
-            <h3 class="text-2xl font-bold text-pink-600 mb-6 flex items-center gap-2 border-b-2 border-pink-200 pb-2">
-                <i class="fas fa-heart text-kitty-red"></i> บุคลิกภาพและตัวตน 🎀
-            </h3>
-            <div class="bg-gradient-to-r from-pink-50 to-white p-6 rounded-2xl text-lg leading-relaxed text-gray-700 shadow-inner">
-                <p>เป็นคนชอบดูแลช่วยเหลือผู้อื่น ชอบศึกษาในการหาคำตอบกับสิ่งต่างๆ <strong>ร่าเริง อัธยาศัยดี</strong> มุ่งมั่นในการพัฒนาทักษะที่มีอยู่และพร้อมรับทักษะใหม่ๆที่เข้ามาอยู่เสมอ</p>
-                <p class="mt-3">ชอบและสนใจในการทดลอง การใช้เทคโนโลยี กลไกการทำงานของเครื่องมือและนวัตกรรมต่างๆ</p>
-                <p class="mt-3"><strong>สามารถปฏิบัติงานร่วมกันกับผู้อื่นได้เป็นอย่างดี</strong> มีความเป็นผู้นำ สามารถสื่อสารและสร้างสัมพันธ์ที่ดีกับผู้อื่น มีความรับผิดชอบต่อตนเองและผู้อื่น แก้ไขปัญหาเฉพาะหน้าได้ จัดสรรเวลาได้เป็นอย่างดี และปรับตัวเข้ากับสถานการณ์และผู้อื่นได้เป็นอย่างดี ✨</p>
+                <h3 class="font-cute text-2xl font-bold text-textmain mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-heart text-pastel-pink"></i> ข้อมูลส่วนตัว
+                </h3>
+                <ul class="space-y-4 text-textmain">
+                    <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-medium bg-pastel-lightpink px-3 py-1 rounded-full text-sm">วันเกิด</span>
+                        <span>21 กรกฎาคม 2550 (17 ปี)</span>
+                    </li>
+                    <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-medium bg-pastel-lightblue px-3 py-1 rounded-full text-sm">สัญชาติ / เชื้อชาติ</span>
+                        <span>ไทย / ไทย</span>
+                    </li>
+                    <li class="flex justify-between items-center border-b border-gray-100 pb-2">
+                        <span class="font-medium bg-pastel-yellow px-3 py-1 rounded-full text-sm">ครอบครัว</span>
+                        <span class="text-right text-sm">อาศัยอยู่กับปู่และย่า<br>(ประกอบอาชีพเกษตรกร)</span>
+                    </li>
+                    <li class="pt-2">
+                        <span class="block font-medium mb-2 text-pastel-purple font-cute text-lg">บุคลิกภาพเด่น 🌟</span>
+                        <p class="text-sm text-textsoft leading-relaxed">
+                            มีความรับผิดชอบ แก้ปัญหาเฉพาะหน้าได้ จัดสรรเวลาได้ดี ปรับตัวเข้ากับสถานการณ์และผู้อื่นได้อย่างยอดเยี่ยม กล้าคิดกล้าทำ
+                        </p>
+                    </li>
+                </ul>
             </div>
-        </section>
 
-        <section id="skills" class="kitty-card p-8 md:p-10">
-            <h3 class="text-2xl font-bold text-pink-600 mb-6 flex items-center gap-2 border-b-2 border-pink-200 pb-2">
-                <i class="fas fa-star text-yellow-400"></i> ทักษะและความสามารถ 🌟
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h4 class="font-bold text-xl text-gray-800 mb-4">Hard Skills & Activities</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <span class="bg-pink-100 text-pink-600 p-2 rounded-full w-10 h-10 flex items-center justify-center"><i class="fas fa-paint-brush"></i></span>
-                            <span>ออกแบบและทำงานด้วยโปรแกรม <strong>Canva</strong></span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="bg-pink-100 text-pink-600 p-2 rounded-full w-10 h-10 flex items-center justify-center"><i class="fas fa-table-cells"></i></span>
-                            <span>เล่น<strong>ซูโดกุ</strong> (Sudoku)</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="bg-pink-100 text-pink-600 p-2 rounded-full w-10 h-10 flex items-center justify-center"><i class="fas fa-basketball-ball"></i></span>
-                            <span>เล่น<strong>บาสเกตบอล</strong></span>
-                        </li>
-                    </ul>
+            <!-- Skills & Education -->
+            <div class="md:col-span-7 flex flex-col gap-8">
+                <!-- Education Snippet -->
+                <div id="education" class="cute-card p-8 bg-gradient-to-r from-pastel-lightblue/30 to-white">
+                    <h3 class="font-cute text-2xl font-bold text-textmain mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-pastel-blue"></i> ประวัติการศึกษา
+                    </h3>
+                    <div class="flex flex-col sm:flex-row items-center gap-6">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner border-4 border-pastel-blue flex-shrink-0">
+                            <i class="fa-solid fa-school text-3xl text-pastel-blue"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium text-textmain">โรงเรียนมัธยมด่านขุนทด</h4>
+                            <p class="text-textsoft mb-2">แผนการเรียน: วิทยาศาสตร์-คณิตศาสตร์-ภาษาอังกฤษ</p>
+                            <div class="inline-block bg-pastel-pink text-white font-cute font-bold px-4 py-1 rounded-full shadow-sm text-lg">
+                                เกรดเฉลี่ย (GPAX): 3.94 🏆
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div>
-                    <h4 class="font-bold text-xl text-gray-800 mb-4">Soft Skills</h4>
+
+                <!-- Skills -->
+                <div class="cute-card p-8">
+                    <h3 class="font-cute text-2xl font-bold text-textmain mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-pastel-purple"></i> ทักษะและความสามารถ
+                    </h3>
                     <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full font-medium shadow-sm hover:bg-pink-50 transition">มีความกล้าแสดงออก</span>
-                        <span class="px-4 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full font-medium shadow-sm hover:bg-pink-50 transition">กล้าคิดกล้าทำ</span>
-                        <span class="px-4 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full font-medium shadow-sm hover:bg-pink-50 transition">มีความเป็นผู้นำ</span>
-                        <span class="px-4 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full font-medium shadow-sm hover:bg-pink-50 transition">ทักษะการพูด/สื่อสาร</span>
-                        <span class="px-4 py-2 bg-white border-2 border-pink-300 text-pink-600 rounded-full font-medium shadow-sm hover:bg-pink-50 transition">พิธีกร</span>
+                        <span class="px-4 py-2 bg-pastel-lightpink text-textmain rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-microphone mr-1 text-pastel-pink"></i> พิธีกร / การพูดสื่อสาร</span>
+                        <span class="px-4 py-2 bg-pastel-lightblue text-textmain rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-users mr-1 text-pastel-blue"></i> ความเป็นผู้นำ</span>
+                        <span class="px-4 py-2 bg-pastel-purple text-white rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-pen-nib mr-1"></i> ออกแบบด้วย Canva</span>
+                        <span class="px-4 py-2 bg-pastel-yellow text-textmain rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-chess-board mr-1 text-orange-400"></i> เล่นซูโดกุ (Sudoku)</span>
+                        <span class="px-4 py-2 bg-gray-100 text-textmain rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-basketball mr-1 text-orange-500"></i> เล่นบาสเกตบอล</span>
+                        <span class="px-4 py-2 bg-green-100 text-textmain rounded-2xl text-sm font-medium shadow-sm hover:scale-105 transition-transform"><i class="fa-solid fa-lightbulb mr-1 text-green-500"></i> กล้าแสดงออก</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="kitty-card p-8 md:p-10 text-center">
-            <h3 class="text-2xl font-bold text-pink-600 mb-6">📬 ช่องทางการติดต่อ</h3>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-lg">
-                <a href="tel:0841750053" class="flex items-center gap-3 hover:-translate-y-1 transition bg-pink-50 px-6 py-3 rounded-xl border border-pink-200">
-                    <i class="fas fa-phone-alt text-2xl text-kitty-red"></i>
-                    <span>084-175-0053</span>
-                </a>
-                <a href="mailto:Imminthira.07@gmail.com" class="flex items-center gap-3 hover:-translate-y-1 transition bg-pink-50 px-6 py-3 rounded-xl border border-pink-200">
-                    <i class="fas fa-envelope text-2xl text-pink-500"></i>
-                    <span>Imminthira.07@gmail.com</span>
-                </a>
-                <div class="flex items-center gap-3 bg-pink-50 px-6 py-3 rounded-xl border border-pink-200">
-                    <i class="fab fa-facebook text-2xl text-blue-500"></i>
-                    <span>Imm inthira</span>
+        <section id="activities" class="relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="font-cute text-4xl font-bold text-textmain section-title">Activities & Highlights</h2>
+                <p class="text-textsoft mt-4 text-lg">กิจกรรมเด่นและผลงานที่ภาคภูมิใจ 🌸</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Activity 1: YC -->
+                <div class="cute-card overflow-hidden group flex flex-col">
+                    <div class="h-48 bg-pastel-lightpink flex items-center justify-center p-4">
+                        <i class="fa-solid fa-hands-holding-child text-6xl text-pastel-pink group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-cute text-xl font-bold text-textmain">เพื่อนที่ปรึกษา (YC)</h4>
+                            <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-2 py-1 rounded-full">ระดับชาติ</span>
+                        </div>
+                        <p class="text-sm text-textsoft flex-1">
+                            รางวัลเหรียญทอง ครั้งที่ 73 และ เหรียญเงิน ครั้งที่ 72 ได้เรียนรู้การให้คำปรึกษาและแก้ปัญหาเฉพาะหน้า นอกจากนี้โรงเรียนยังได้รับรางวัลแกนนำ YC ต้นแบบระดับประเทศอีกด้วย
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 2: Science Show -->
+                <div class="cute-card overflow-hidden group flex flex-col">
+                    <div class="h-48 bg-pastel-lightblue flex items-center justify-center p-4 relative">
+                        <i class="fa-solid fa-flask-vial text-6xl text-pastel-blue group-hover:scale-110 transition-transform duration-300"></i>
+                        <i class="fa-solid fa-fire text-2xl text-orange-400 absolute bottom-6 right-1/4 float-anim"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-cute text-xl font-bold text-textmain">Science Show</h4>
+                            <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-2 py-1 rounded-full">ระดับชาติ</span>
+                        </div>
+                        <p class="text-sm text-textsoft flex-1">
+                            การแข่งขันระดับชาติ ครั้งที่ 71 แสดงเรื่อง "ดิน น้ำ ลม ไฟ" รับบทนำโชว์เรื่องไฟ (ปฏิกิริยาแก๊สบิวเทนและโพรเพน) ได้พัฒนาศักยภาพความกล้าแสดงออกและการทำงานเป็นทีม
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 3: IS Project -->
+                <div class="cute-card overflow-hidden group flex flex-col">
+                    <div class="h-48 bg-green-50 flex items-center justify-center p-4">
+                        <i class="fa-solid fa-leaf text-6xl text-green-400 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-cute text-xl font-bold text-textmain">โครงงาน IS (ยอดเยี่ยม)</h4>
+                        </div>
+                        <p class="text-sm text-textsoft flex-1">
+                            นำเสนอโครงงานวิจัยเรื่องลดกลิ่นห้องน้ำโรงเรียน โดยใช้น้ำหมัก EM จากสับปะรดและสมุนไพรพื้นบ้าน (มะกรูด ตะไคร้) และเป็นผู้ออกแบบผลิตภัณฑ์ด้วยโปรแกรม Canva
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 4: Student Council -->
+                <div class="cute-card overflow-hidden group flex flex-col">
+                    <div class="h-48 bg-pastel-purple/30 flex items-center justify-center p-4">
+                        <i class="fa-solid fa-bullhorn text-6xl text-pastel-purple group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-cute text-xl font-bold text-textmain">รองประธานนักเรียน</h4>
+                            <span class="bg-pastel-purple text-white text-xs font-bold px-2 py-1 rounded-full">ปี 2567</span>
+                        </div>
+                        <p class="text-sm text-textsoft flex-1">
+                            ได้รับเลือกด้วยคะแนน 902 เสียง ได้พัฒนาด้านการบริหารเวลา ความเป็นผู้นำ และเป็นกระบอกเสียงประสานงานระหว่างนักเรียน ครู และผู้บริหาร
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 5: Hospital & Camps -->
+                <div class="cute-card overflow-hidden group flex flex-col lg:col-span-2">
+                    <div class="p-6 flex flex-col md:flex-row gap-6 h-full items-center">
+                        <div class="w-full md:w-1/3 flex justify-center gap-4 text-4xl text-pastel-pink">
+                            <i class="fa-solid fa-house-medical float-anim"></i>
+                            <i class="fa-solid fa-microscope float-anim" style="animation-delay: 1s;"></i>
+                            <i class="fa-solid fa-tent float-anim" style="animation-delay: 2s;"></i>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-cute text-xl font-bold text-textmain mb-3">การฝึกประสบการณ์ & ค่ายวิชาการ</h4>
+                            <ul class="text-sm text-textsoft space-y-2 list-disc list-inside">
+                                <li><strong>ฝึกประสบการณ์ รพ.เทพารักษ์:</strong> เรียนรู้การจัดเก็บยา ตรวจความดัน น้ำตาลในเลือด ช่วยเหลือบุคลากร</li>
+                                <li><strong>KKU Academic Camp:</strong> ค่ายแพทย์และวิทยาศาสตร์สุขภาพ ม.ขอนแก่น (ฝึกปฐมพยาบาล, เย็บแผล)</li>
+                                <li><strong>ค่ายวิทยาศาสตร์ MES:</strong> ลงมือปฏิบัติการไทเทรต โครงสร้างอาจารย์ใหญ่ ที่ ม.ขอนแก่น และ มทส.</li>
+                                <li><strong>สถานศึกษาสีขาว:</strong> เจ้าหน้าที่ศูนย์การเรียนรู้ปลอดยาเสพติด ให้ความรู้ รร.ขนาดเล็ก</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="relative z-10 pt-12">
+            <div class="cute-card p-10 text-center bg-gradient-to-b from-white to-pastel-lightpink/50">
+                <h2 class="font-cute text-3xl font-bold text-textmain mb-2">Let's Connect! 💌</h2>
+                <p class="text-textsoft mb-8">ช่องทางการติดต่อ</p>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <!-- Phone -->
+                    <a href="tel:0841750053" class="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:scale-105 transition-all border border-pastel-pink/30 group">
+                        <div class="w-10 h-10 rounded-full bg-pastel-lightpink flex items-center justify-center group-hover:bg-pastel-pink transition-colors">
+                            <i class="fa-solid fa-phone text-pastel-pink group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-textmain">084-175-0053</span>
+                    </a>
+                    
+                    <!-- Email -->
+                    <a href="mailto:Imminthira.07@gmail.com" class="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:scale-105 transition-all border border-pastel-blue/30 group">
+                        <div class="w-10 h-10 rounded-full bg-pastel-lightblue flex items-center justify-center group-hover:bg-pastel-blue transition-colors">
+                            <i class="fa-solid fa-envelope text-pastel-blue group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-textmain">Imminthira.07@gmail.com</span>
+                    </a>
+                    
+                    <!-- Facebook -->
+                    <a href="#" class="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:scale-105 transition-all border border-blue-200 group">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+                            <i class="fa-brands fa-facebook-f text-blue-500 group-hover:text-white"></i>
+                        </div>
+                        <span class="font-medium text-textmain">Imm inthira</span>
+                    </a>
+                </div>
+                
+                <div class="mt-12 pt-6 border-t border-white/50 text-textsoft text-sm font-cute">
+                    <p>"ความพยายามจะมาพร้อมกับความสำเร็จ"</p>
+                    <p class="mt-2 text-xs opacity-70">&copy; 2024 Inthira Chunkhuntod. All rights reserved.</p>
                 </div>
             </div>
         </section>
 
     </main>
-
-    <footer class="bg-pink-200 py-6 text-center text-pink-800 font-medium border-t-4 border-pink-300 mt-10">
-        <p>Created with 💕 by Leim | Portfolio 2026</p>
-        <div class="mt-2 text-2xl space-x-2">
-            🐱 🎀 🍎 🌷
-        </div>
-    </footer>
 
 </body>
 </html>
